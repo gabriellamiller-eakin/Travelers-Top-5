@@ -7,19 +7,49 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" 
     integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="styles" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 
 <body>
 
+<header>
+    <h1>Traveler's Top 5</h1>
+</header>
 
+ <!-- div to hold user input and select drop down with search button -->
+    <div class="searchdiv">
 
+        <div id="input">
+        <input type="text" id="city-input" name="city-input" placeholder="Search a City"> 
+        </div>
+      
+        <div id="drop-down"> 
+        <select name="activity" placeholder="select" id="activity">
+            <option value="" disabled selected> Select an option </option>
+            <option id="eat" value="eat">Grab a bite!</option>
+            <option id="sight" value="sight">See a sight!</option>
+            <option id="flight" value="flight">Take a flight!</option>
+            <option id="night" value="night">Spend the night!</option>
+        </select>
+        </div>
+        
+        <br>
+        <button id="search">Search</button>
+    </div>
+<!-- foundation containers to hold info from the ajax calls. Script to append top 5 in whatever category is selected by the user -->
+
+<div id="option1"> #1 will append here </div>
+<div id="option2"> #2 will append here </div>
+<div id="option3"> #3 will append here </div>
+<div id="option4"> #4 will append here </div>
+<div id="option5"> #5 will append here </div>
+
+<footer> </footer> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" 
 integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
 <script src="assets/script.js"></script>
 </body>
-
 
 </html>

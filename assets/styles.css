@@ -1,0 +1,17 @@
+header {
+    text-align: center;
+    background-color: rgb(42, 99, 255);
+    color: white;
+}
+
+#input {
+    display: inline-block;
+}
+
+#drop-down {
+    display: inline-block;
+}
+
+body {
+    text-align: center;
+}
