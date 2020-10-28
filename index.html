@@ -5,11 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name=""> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles.css">
     
     
     <title>Traveler's Top Five</title>
 </head>
+
+<header>
+    
+    <img id="logo" class="logo"  src="./assets/newlogo.png"  alt="logo"> 
+    <h3> Traveler's Top Five </h3>
+   
+
+</header>
 
 <body>
     <div class="off-canvas position-bottom" id="offCanvas" data-off-canvas>
@@ -36,24 +45,42 @@
 <!-- Section has class and style hardcoded to create our vertical styled page that auto max at viewport height  -->
 <section class="grid-y grid-frame" style="height: 100vh;">
 <!-- header includes logo -->
-
-    <header class="cell small-2 medium-2 large-1">
+<!-- 
+    <header class="cell small-3 medium-2 large-1"> -->
         
-        <div class="overlay">
-
-            <img id="logo" class="logo"  src="./assets/logo.jpg"  alt="logo">
-        </div>
-    </header>
+        <!-- <div class="overlay"> -->
+            <!-- <h3>Travel</h3>
+            <img id="logo" class="logo"  src="./assets/newlogo.png"  alt="logo">
+             -->
+        <!-- </div> -->
+    <!-- </header> -->
 <!-- the Main element is the container for our search and result elements -->
     <main class="cell small-8 medium-9 large-10">
         <div id="results" class="grid-y" style="height: 100%;">
 <!-- The search div will contain the input textarea, drop down menu, and button for searches -->
             <div id="search" class="cell grid-x auto">
-                <div id="searchbar" class="float-center">
-                    <ul class="menu">
+
+                <div id="searchbar" class="float center">
+                    <ul class="cell small-6 medium-6 large-6 menu">
                       <li><input id="input" type="search" placeholder="Enter City"></li>
-                      <li><button id="searchBtn" type="button" class="button">GO</button></li>
-                    </ul>
+                      
+                      <li>   
+                          
+                        <ul id="nav-bar" class = "cell small-6 medium-6 large-6 dropdown menu" data-dropdown-menu>
+                        <li>
+                           <a>Options</a>
+                           <ul class = "menu">
+                              <li><a href = "#">Grab a bite</a></li>
+                              <li><a href = "#">See a sight</a></li>
+                              <li><a href = "#">Stay the night</a></li>
+                              <li><a href = "#">Take a flight</a></li>
+
+                            </ul>
+                            </ul>
+                        </li>
+
+                        <li><button id="searchBtn" type="button" class="button">GO</button></li>
+                        </ul>
                   </div>
                     <!-- <ul class="menu">
                         <a href="#0">Select</a>
@@ -64,6 +91,8 @@
                         </ul>    
                     </ul> -->   
             </div>
+
+        
 <!-- our buttons will be appended in this part of the HTML -->
 <!-- ----------------------------------------------------- -->
             <!-- example buttons below -->
