@@ -4,7 +4,7 @@ var cities = [];
 
 // saves searched cities to local storage
 function saveToStorage() {
-    localStorage.setItem("cities", JSON.stringify(cities));
+    localStorage.setItem("cities", JSON.stringify(cities).toUpperCase());
 };
 
 // get cities from local storage
@@ -20,7 +20,7 @@ function dislayStorage() {
     // let allCities = $(".vertical")
 
     var limit = cities.length;
-    console.log(limit)
+    // console.log(limit)
     for (let c = 0; c < limit; c++) {
         console.log(c);
         console.log(cities)
@@ -52,7 +52,7 @@ $("#selector").on("click", "li", function(event) {
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     // city input by user
-    var cityName = $("#input").val();
+    var cityName = $("#input").val().toUpperCase();
     console.log(cityName);
     // saves searched cities to local storage
     if(!cities.includes(cityName)){
@@ -115,7 +115,7 @@ function getCityInfo(location) {
             var thumbnail = $("<div>");
             thumbnail.attr("class", "small-3");
             var img = $("<img>");
-            img.attr("class", "thumbnail").attr("src", `${imgURL}`);
+            img.attr("class", "thumbnail").attr("src", `${imgURL}`).attr("id", "thumb");
             thumbnail.append(img);
 
             // p tag with business name
@@ -129,7 +129,7 @@ function getCityInfo(location) {
             // var reviewCount = $("<p>").text(reviewCount);
             ratingDisplay.attr("class", "small-3");
             var rateImg = $("<img>");
-            rateImg.attr("class", "rating");
+            rateImg.attr("class", "rating").attr("id","stars");
 
             if (rating == 4) {
                 rateImg.attr("src", "./assets/small_4.png");
