@@ -1,4 +1,4 @@
-# Traveler's Top 5 <img src="https://github.com/gabriellamiller-eakin/Travelers-Top-5/blob/main/assets/newlogo.png" align="right" width="200" height="200"/>
+# Traveler's Top 5 <img src="https://github.com/gabriellamiller-eakin/Travelers-Top-5/blob/main/assets/tt5 logo cropped.png" align="right" width="200" height="200"/>
 
 ### The Repository
 This repository is where we develop the Traveler's Top 5 application. We ([Alfonso James](https://github.com/AlfonsoJames), [Gabriella Miller-Eakin](https://github.com/gabriellamiller-eakin), [Caitlin Crews](https://github.com/caitlincrews08), [Benjamin Phan](https://github.com/bphan94), and [Nathan Anthony](https://github.com/Pegasoos)) built this application to help people conveniently find the five best reviewed locations and activities in a given city.
