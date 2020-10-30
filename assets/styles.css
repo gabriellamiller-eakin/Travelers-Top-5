@@ -4,12 +4,15 @@ body {
     font-family: ubuntu;
     overflow: hidden;
     text-align: center;
+    position: relative;
+    z-index: 1;
   }
   header {
       /* background-image: url("./red-texture-background.jpg"); */
       background-color: #6396b3;
       text-align: center;
-      z-index: 2;
+      z-index: 3;
+      position: relative;
       /* -webkit-box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.5);
       -moz-box-shadow: 0 10px 10px -10px rgba(0,0,0,0.5); */
       
@@ -35,6 +38,8 @@ body {
 .btnGroup {
   text-align: center;  
   box-shadow: inset 0px 5px 10px 5px #3b3b3b33;
+  position: relative;
+  z-index: 2;
   }
 p {
   display: inline-block;
@@ -48,8 +53,7 @@ p {
     background-color: rgb(223, 223, 223);
     text-align: center;
     box-shadow: inset 0px 5px 10px 5px #3b3b3b33;
-    
-  }
+     }
   
  #thumb {
     width:100%; 
@@ -71,7 +75,8 @@ p {
     /* background-image: linear-gradient(white, #505050); */
     background-color: #6396b3;
     text-align: center;
-    z-index: 2;
+    z-index: 3;
+    position: relative;
     padding: 0px;
     text-shadow: 3px 3px 6px #505050;
     /* -webkit-box-shadow:  10px 10px 10px rgba(0, 0, 0, 0.5);
@@ -81,15 +86,17 @@ p {
   #searchBar {
     margin-top: 22px;
     margin-bottom: 0px;
-    z-index: 3;
+    z-index: 4;
     text-align: center; 
+    position: relative;
   }
   #searchBox {
    
     background-image: linear-gradient(white,#6396b3);
     text-align: center;
     box-shadow: 0px 5px 10px 10px rgba(0, 0, 0, 0.4);
-    z-index: 3;
+    z-index: 5;
+    position: relative;
   }
   
   h6 {
@@ -161,5 +168,21 @@ a {
     src: url(./Ubuntu/Ubuntu-Bold.ttf);
   }
   
-  
+  /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  height: 100%;
+}
+
+iframe {
+  width: auto;
+  height: 100%;
+  margin-top: 0px;
+  background-color: #505050;
+  border: 0;
+  position: relative;
+  z-index: 1;
+ }
+
+
  

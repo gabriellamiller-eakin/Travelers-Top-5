@@ -1,6 +1,9 @@
-var APIkey = "KpVaSg6kM14fYZ4dJK7h0ORC8ZV45xl1bChFEVSmjPhlZq3m-NPcpw7vHplOo-E_G9-LmM5GLK_dUDJWBK1WHfgOW2OKnWYUD3GsW7IWyq0AUCc-pXZSWFKEioePX3Yx";
+// var APIkey = "KpVaSg6kM14fYZ4dJK7h0ORC8ZV45xl1bChFEVSmjPhlZq3m-NPcpw7vHplOo-E_G9-LmM5GLK_dUDJWBK1WHfgOW2OKnWYUD3GsW7IWyq0AUCc-pXZSWFKEioePX3Yx";
 // empty array to save searched cities
+var APIkey = "wQI1YB_KjttNT1PPg7zKwSKnHVv9r_Sy9KbRuD9mriRzd9GrekDWpbBU3RxXfajAialJr3uVtSRPckG4tJdS5CGiGU5FWh6vj2kqUH6yZS-hzOMCasKhGRqMpuWbX3Yx"
 var cities = [];
+
+
 
 // saves searched cities to local storage
 function saveToStorage() {
@@ -22,8 +25,8 @@ function dislayStorage() {
     var limit = cities.length;
     // console.log(limit)
     for (let c = 0; c < limit; c++) {
-        console.log(c);
-        console.log(cities)
+        // console.log(c);
+        // console.log(cities)
         let cityViewed = $("<li>");
         cityViewed.attr("id", `${cities[c]}`);
         cityViewed.html(cities[c]);
@@ -46,14 +49,17 @@ var selectedOption = "";
 $("#selector").on("click", "li", function(event) {
     selectedOption =$(this).attr("id");
     $(".option").text($(this).text());
-})
+});
+
+
+
 
 //  runs when search button is clicked
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     // city input by user
     var cityName = $("#input").val().toUpperCase();
-    console.log(cityName);
+    // console.log(cityName);
     // saves searched cities to local storage
     if(!cities.includes(cityName)){
         cities.push(cityName);
@@ -61,17 +67,18 @@ $("#searchBtn").on("click", function(event) {
     }
 
     getCityInfo(cityName)
-    console.log("button working");
+    // console.log("button working");
 });
 
 // gets appropriate info from yelp APi
 function getCityInfo(location) {
     var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + selectedOption + "&location=" + location;
-
+    
     $.ajax({
         url: queryurl,
         method: "GET",
         headers: {
+
             "Authorization": "Bearer " + APIkey
         }
         // displays JSON response to user
@@ -82,7 +89,7 @@ function getCityInfo(location) {
         var filteredList = response.businesses.filter(function(item) {
             return item.rating >= 4;
         });
-        console.log(filteredList);
+        // console.log(filteredList);
         let results = $("#results");
         results.find(".myDiv").remove();
 
@@ -94,11 +101,16 @@ function getCityInfo(location) {
             var imgURL = filteredList[i].image_url;
             var url = filteredList[i].url;
             var reviewCount = filteredList[i].review_count;
-            console.log(bizname);
-            console.log(rating);
-            console.log(imgURL);
-            console.log(url);
-            console.log(reviewCount);
+            var city = filteredList[i].location.city;
+            var state = filteredList[i].location.state;
+
+            // console.log(bizname);
+            // console.log(rating);
+            // console.log(imgURL);
+            // console.log(url);
+            // console.log(reviewCount);
+            // console.log(city);
+            // console.log(state);
 
 
 
@@ -109,7 +121,7 @@ function getCityInfo(location) {
 
             // framework div
             var frameworkDiv = $("<div>");
-            frameworkDiv.attr("class", "grid-x ");
+            frameworkDiv.attr("class", "grid-x")
 
             //thumbnail div
             var thumbnail = $("<div>");
@@ -148,10 +160,30 @@ function getCityInfo(location) {
 
             myDiv.append(frameworkDiv);
 
-            $("#results").append(myDiv);
-        
-
+            $("#results").append(myDiv);     
         };
+        
+  
+        $(".btnGroup").on("click", function(event) {
+            $(".myDiv").remove();
+            var venue = $(this).attr("id").replace(/ /g,"+").trim();
+            var mapsURL= "https://www.google.com/maps/embed/v1/place?key=AIzaSyCS9GaYIm_FR-7orrqrXwtQFIHnro7MfVk&q=" + venue + "," + city + "+" + state;
+            var myDiv = $("<div>");
+            myDiv .attr("class", "grid-y cell myDiv").attr("style", "height: 100%;");
+            var iframe = $("<iframe>");
+            iframe.attr("src", mapsURL);
+            myDiv.append(iframe);
+            $("#results").append(myDiv);
+            
+           
+            // console.log(venue);
+            // console.log(mapsURL);
+            
+            
+            
+            
+        });
     });
 
 };
+
