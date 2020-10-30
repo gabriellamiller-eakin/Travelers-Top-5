@@ -174,13 +174,9 @@ function getCityInfo(location) {
             iframe.attr("src", mapsURL);
             myDiv.append(iframe);
             $("#results").append(myDiv);
-            
-           
+                
             // console.log(venue);
-            // console.log(mapsURL);
-            
-            
-            
+            // console.log(mapsURL);   
             
         });
     });
