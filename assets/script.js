@@ -23,10 +23,10 @@ function dislayStorage() {
     // let allCities = $(".vertical")
 
     var limit = cities.length;
-    // console.log(limit)
+    console.log(limit)
     for (let c = 0; c < limit; c++) {
-        // console.log(c);
-        // console.log(cities)
+        console.log(c);
+        console.log(cities)
         let cityViewed = $("<li>");
         cityViewed.attr("id", `${cities[c]}`);
         cityViewed.html(cities[c]);
@@ -50,8 +50,7 @@ $("#selector").on("click", "li", function(event) {
     selectedOption =$(this).attr("id");
     $(".option").text($(this).text());
 });
-
-
+})
 
 
 //  runs when search button is clicked
@@ -67,13 +66,12 @@ $("#searchBtn").on("click", function(event) {
     }
 
     getCityInfo(cityName)
-    // console.log("button working");
 });
 
 // gets appropriate info from yelp APi
 function getCityInfo(location) {
     var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + selectedOption + "&location=" + location;
-    
+
     $.ajax({
         url: queryurl,
         method: "GET",
@@ -89,7 +87,7 @@ function getCityInfo(location) {
         var filteredList = response.businesses.filter(function(item) {
             return item.rating >= 4;
         });
-        // console.log(filteredList);
+
         let results = $("#results");
         results.find(".myDiv").remove();
 
@@ -101,17 +99,20 @@ function getCityInfo(location) {
             var imgURL = filteredList[i].image_url;
             var url = filteredList[i].url;
             var reviewCount = filteredList[i].review_count;
+
             var city = filteredList[i].location.city;
             var state = filteredList[i].location.state;
 
-            // console.log(bizname);
-            // console.log(rating);
-            // console.log(imgURL);
-            // console.log(url);
-            // console.log(reviewCount);
-            // console.log(city);
-            // console.log(state);
 
+            // main div where I am dumping other divs and p tags
+            var myDiv = $("<div>");
+            myDiv.attr("id", `${bizname}`);
+            myDiv.attr("class", "cell small-2 medium-cell-block-container btnGroup myDiv");
+
+
+            // framework div
+            var frameworkDiv = $("<div>");
+            frameworkDiv.attr("class", "grid-x ");
 
 
             // main div where I am dumping other divs and p tags
@@ -160,6 +161,7 @@ function getCityInfo(location) {
 
             myDiv.append(frameworkDiv);
 
+
             $("#results").append(myDiv);     
         };
         
@@ -183,3 +185,11 @@ function getCityInfo(location) {
 
 };
 
+            $("#results").append(myDiv);
+        
+
+        };
+    });
+
+
+};
