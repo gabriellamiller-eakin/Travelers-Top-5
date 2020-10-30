@@ -29,9 +29,10 @@ function dislayStorage() {
         cityViewed.html(cities[c]);
         $("#history").prepend(cityViewed);
 
-        $(`#${cities[c]}`).on("click", function (event) {
+        cityViewed.on("click", function (event) {
             event.preventDefault();
             var currentCity = $(this).text();
+            $("#input").val(currentCity);
             // console.log($(this).text());
             getCityInfo(currentCity)
           });
@@ -40,11 +41,17 @@ function dislayStorage() {
 
 dislayStorage();
 
+var selectedOption = "";
+
+$("#selector").on("click", "li", function(event) {
+    selectedOption =$(this).attr("id");
+    $(".option").text($(this).text());
+})
+
 //  runs when search button is clicked
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     // city input by user
-    // $("#results").empty();
     var cityName = $("#input").val();
     console.log(cityName);
     // saves searched cities to local storage
@@ -52,13 +59,14 @@ $("#searchBtn").on("click", function(event) {
         cities.push(cityName);
         saveToStorage();
     }
+
     getCityInfo(cityName)
     console.log("button working");
 });
 
 // gets appropriate info from yelp APi
 function getCityInfo(location) {
-    var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=burrito" + "&location=" + location;
+    var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + selectedOption + "&location=" + location;
 
     $.ajax({
         url: queryurl,
@@ -75,6 +83,8 @@ function getCityInfo(location) {
             return item.rating >= 4;
         });
         console.log(filteredList);
+        let results = $("#results");
+        results.find(".myDiv").remove();
 
         // $(".results").html("");
         // for loop to get 5 results
@@ -91,12 +101,11 @@ function getCityInfo(location) {
             console.log(reviewCount);
 
 
-            let results = $("#results");
 
             // main div where I am dumping other divs and p tags
             var myDiv = $("<div>");
             myDiv.attr("id", `${bizname}`);
-            myDiv.attr("class", "cell small-2 medium-cell-block-container btnGroup");
+            myDiv.attr("class", "cell small-2 medium-cell-block-container btnGroup myDiv");
 
             // framework div
             var frameworkDiv = $("<div>");
