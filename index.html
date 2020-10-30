@@ -21,7 +21,7 @@
             </button>
         
             <!-- Menu -->
-            <ul class="vertical menu">
+            <ul id="history" class="vertical menu">
             <li><a href="#">New Orleans</a></li>
             <li><a href="#">Dubai</a></li>
             <li><a href="#">Cincinnati</a></li>
@@ -44,11 +44,8 @@
 
 <!-- the Main element is the container for our search and result elements -->
 
-        <main class="cell small-9">
+        <main class="cell small-9 grid-y">
             <div id="results" class="grid-y" style="height: 100%;">
-
-<!-- The search div will contain the input textarea, drop down menu, and button for searches -->
-
                 <div id="searchBox" class="grid-x cell auto align-center">
                     <div id="searchBar" class="grid-x">
                         <div class="cell small-3">     
@@ -67,29 +64,12 @@
                         <div class="cell auto" style><input id="input" type="search" placeholder="Enter City"></div>
                         <div class="cell small-2"><button id="searchBtn" type="button" class="button" style="padding-top: 12px;">GO</button></div>
                     </div>
+                
+<!-- The search div will contain the input textarea, drop down menu, and button for searches -->
 
-                    
-                    <!-- <div id="searchbar" class="float-center">
-                        <ul class="menu">
-                        <li><input id="input" type="search" placeholder="Enter City"></li>
-                        <li><button id="searchBtn" type="button" class="button">GO</button></li>
-                        </ul>
-                    </div> -->
-                        <!-- <ul class="menu">
-                            <a href="#0">Select</a>
-                            <ul class="menu">
-                                <li><a href="#0">Restaurants</a></li>
-                                <li><a href="#0">Entertainment</a></li>
-                                <li><a href="#0">Find a Flight</a></li>
-                            </ul>    
-                        </ul> -->   
-                </div>
-
-<!-- our buttons will be appended in this part of the HTML -->
-<!-- ----------------------------------------------------- -->
 
                 <!-- example buttons below -->
-                <div id="btn1" class="cell small-2 medium-cell-block-container btnGroup">
+                <!-- <div id="btn1" class="cell small-2 medium-cell-block-container btnGroup">
                     <div class="grid-x ">
                         <div id=thumbnail class="small-3"> 
                             <img src="./assets/1.jpg" alt="thumbnail">
@@ -99,7 +79,7 @@
                             <img src="./assets/star.jpg" alt="stars">
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div id="btn2" class="cell small-2 medium-cell-block-container btnGroup">
                     <div class="grid-x ">
                         <div id=thumbnail class="small-3"> 
@@ -159,5 +139,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/js/foundation.min.js" integrity="sha256-WUKHnLrIrx8dew//IpSEmPN/NT3DGAEmIePQYIEJLLs= sha384-53StQWuVbn6figscdDC3xV00aYCPEz3srBdV/QGSXw3f19og3Tq2wTRe0vJqRTEO sha512-X9O+2f1ty1rzBJOC8AXBnuNUdyJg0m8xMKmbt9I3Vu/UOWmSg5zG+dtnje4wAZrKtkopz/PEDClHZ1LXx5IeOw==" crossorigin="anonymous"></script>
         <script>$(document).foundation();</script>
+        <script src="./assets/script.js"></script>
 </body>
 </html>

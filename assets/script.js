@@ -7,11 +7,44 @@ function saveToStorage() {
     localStorage.setItem("cities", JSON.stringify(cities));
 };
 
+// get cities from local storage
+function loadFromStore() {
+    cities = JSON.parse(localStorage.getItem("cities")) || [];
+    // getCityInfo(cities[cities.length-1]);
+};
+loadFromStore();
+
+// displays cities in local storage to user in History tab
+function dislayStorage() {
+    $("#history").empty();
+    // let allCities = $(".vertical")
+
+    var limit = cities.length;
+    console.log(limit)
+    for (let c = 0; c < limit; c++) {
+        console.log(c);
+        console.log(cities)
+        let cityViewed = $("<li>");
+        cityViewed.attr("id", `${cities[c]}`);
+        cityViewed.html(cities[c]);
+        $("#history").prepend(cityViewed);
+
+        $(`#${cities[c]}`).on("click", function (event) {
+            event.preventDefault();
+            var currentCity = $(this).text();
+            // console.log($(this).text());
+            getCityInfo(currentCity)
+          });
+    };
+};
+
+dislayStorage();
 
 //  runs when search button is clicked
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     // city input by user
+    // $("#results").empty();
     var cityName = $("#input").val();
     console.log(cityName);
     // saves searched cities to local storage
@@ -19,13 +52,13 @@ $("#searchBtn").on("click", function(event) {
         cities.push(cityName);
         saveToStorage();
     }
-    
     getCityInfo(cityName)
+    console.log("button working");
 });
 
 // gets appropriate info from yelp APi
-function getCityInfo() {
-    var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=" + activity + "&location=" + location;
+function getCityInfo(location) {
+    var queryurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=burrito" + "&location=" + location;
 
     $.ajax({
         url: queryurl,
@@ -34,20 +67,82 @@ function getCityInfo() {
             "Authorization": "Bearer " + APIkey
         }
         // displays JSON response to user
-    }).then(function(response){
-        console.log(response)
+    }).then(function (response) {
+        // console.log(response)
+
+        // filtered list of response array to only capture businesses with a 4 star rating or higher
+        var filteredList = response.businesses.filter(function(item) {
+            return item.rating >= 4;
+        });
+        console.log(filteredList);
+
+        // $(".results").html("");
+        // for loop to get 5 results
+        for (var i = 0; i < 5; i++) {
+            var bizname = filteredList[i].name;
+            var rating = filteredList[i].rating;
+            var imgURL = filteredList[i].image_url;
+            var url = filteredList[i].url;
+            var reviewCount = filteredList[i].review_count;
+            console.log(bizname);
+            console.log(rating);
+            console.log(imgURL);
+            console.log(url);
+            console.log(reviewCount);
+
+
+            let results = $("#results");
+
+            // main div where I am dumping other divs and p tags
+            var myDiv = $("<div>");
+            myDiv.attr("id", `${bizname}`);
+            myDiv.attr("class", "cell small-2 medium-cell-block-container btnGroup");
+
+            // framework div
+            var frameworkDiv = $("<div>");
+            frameworkDiv.attr("class", "grid-x ");
+
+            //thumbnail div
+            var thumbnail = $("<div>");
+            thumbnail.attr("class", "small-3");
+            var img = $("<img>");
+            img.attr("class", "thumbnail").attr("src", `${imgURL}`);
+            thumbnail.append(img);
+
+            // p tag with business name
+            var p = $("<p>");
+            p.attr("class", "small-6");
+            // p.attr("id", "");
+            p.text(`${bizname}`);
+
+            // third div
+            var ratingDisplay = $("<div>");
+            // var reviewCount = $("<p>").text(reviewCount);
+            ratingDisplay.attr("class", "small-3");
+            var rateImg = $("<img>");
+            rateImg.attr("class", "rating");
+
+            if (rating == 4) {
+                rateImg.attr("src", "./assets/small_4.png");
+            } else if (rating == 4.5) {
+                rateImg.attr("src", "./assets/small_4_half.png");
+            } else {
+                rateImg.attr("src", "./assets/small_5.png");
+            }
+            ratingDisplay.append(rateImg);
+            // ratingDisplay.append(reviewCount);
+
+            // append everthing to main div
+            frameworkDiv.append(thumbnail);
+            frameworkDiv.append(p);
+            frameworkDiv.append(ratingDisplay);
+
+            myDiv.append(frameworkDiv);
+
+            $("#results").append(myDiv);
+        
+
+        };
     });
+
 };
-
-// displays current searched city to user
-function displayCityInfo() {
-    // create buttons to append to div
-    // 
-}
-
-
-
-
-
-
-
