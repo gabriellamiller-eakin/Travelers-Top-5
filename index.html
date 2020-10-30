@@ -38,7 +38,9 @@
 
         <!-- <div class="overlay">    -->
             <header class="cell small-2">
-                <img id="logo" class="logo"  src="./assets/newlogo.png"  alt="logo">
+
+                <img id="logo" class="logo"  src="./assets/TT5 Logo cropped.png"  alt="logo">
+
             </header>
         <!-- </div> -->
 
@@ -47,26 +49,30 @@
         <main class="cell small-9 grid-y">
             <div id="results" class="grid-y" style="height: 100%;">
                 <div id="searchBox" class="grid-x cell auto align-center">
-                    <div id="searchBar" class="grid-x">
-                        <div class="cell small-3">     
+
+                    <div id="searchBar" class="grid-x cell">
+                        <div class="cell shrink">     
                             <ul id="dropdown" class="dropdown menu" data-dropdown-menu>
                                 <li id="dropBtn" role="menuitem" class="is-dropdown-submenu-parent opens-bottom" aria-haspopup="true" aria-label="Options">
-                                <a class="option" style="padding-top: 12px;">Select</a>
+                                <a class="option"  style="padding-top: 12px; height: 6vh;">Select</a>
+
                                     <ul id="selector" class="menu submenu is-dropdown-submenu first-sub vertical" data-submenu="" role="menubar">
                                         <li id="restaurant" role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Grab a Bite</a></li>
                                         <li id="sightseeing" role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">See a Sight</a></li>
                                         <li id="hotel" role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Stay the Night</a></li>
-                                        <li id="flights" role="menuitem" class="is-submenu-item is-dropdown-submenu-item"><a href="#">Take a Flight</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <div class="cell auto" style><input id="input" type="search" placeholder="Enter City"></div>
-                        <div class="cell small-2"><button id="searchBtn" type="button" class="button" style="padding-top: 12px;">GO</button></div>
+
+                        <div class="cell auto"><input id="input" type="search" placeholder="Enter City" style="padding-top: 12px; height: 6vh;"></div>
+                        <div class="cell shrink"><button id="searchBtn" type="button" class="button" style="padding-top: 12px; height: 6vh;">GO</button></div>
                     </div>
                 
 <!-- The search div will contain the input textarea, drop down menu, and button for searches -->
-
+                    <!-- <div class="grid-y cell myDiv" style="height: 100%;">
+                        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCS9GaYIm_FR-7orrqrXwtQFIHnro7MfVk&q=Space+Needle,Seattle+WA"></iframe>
+                    </div> -->
 
                 <!-- example buttons below -->
                 <!-- <div id="btn1" class="cell small-2 medium-cell-block-container btnGroup">
@@ -127,7 +133,9 @@
             </div>
         </main>     
             
-<!-- Footer functionallity is TBD -->
+
+<!-- Footer is button for History Off Canvas -->
+
 
         <!-- <div class="overlay">     -->
             <footer class="cell small-1"> 
@@ -135,7 +143,16 @@
             </footer>
         <!-- </div> -->
     </section>
-  
+
+        <!-- <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS9GaYIm_FR-7orrqrXwtQFIHnro7MfVk&callback=initMap"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCS9GaYIm_FR-7orrqrXwtQFIHnro7MfVk&callback=initMap&libraries=&v=weekly"
+          defer></script> -->
+        
+       
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/js/foundation.min.js" integrity="sha256-WUKHnLrIrx8dew//IpSEmPN/NT3DGAEmIePQYIEJLLs= sha384-53StQWuVbn6figscdDC3xV00aYCPEz3srBdV/QGSXw3f19og3Tq2wTRe0vJqRTEO sha512-X9O+2f1ty1rzBJOC8AXBnuNUdyJg0m8xMKmbt9I3Vu/UOWmSg5zG+dtnje4wAZrKtkopz/PEDClHZ1LXx5IeOw==" crossorigin="anonymous"></script>
         <script>$(document).foundation();</script>
