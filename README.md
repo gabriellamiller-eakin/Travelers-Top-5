@@ -5,3 +5,5 @@ This repository is where we develop the Traveler's Top 5 application. We ([Alfon
 ## Traveler's Top 5
 <img src="https://github.com/gabriellamiller-eakin/Travelers-Top-5/blob/main/assets/Screenshot.png"/>
 Traveler's Top 5 is a mobile first web application that utilizes the Yelp API to help users discover locations based on review ranking to visit within the city they enter. It also uses the Google Map Embed API to give users a map display of the selected venue.
+
+LIVE SITE:https://gabriellamiller-eakin.github.io/Travelers-Top-5/
