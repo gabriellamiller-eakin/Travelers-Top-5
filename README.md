@@ -3,4 +3,4 @@
 ### The Repository
 This repository is where we develop the Traveler's Top 5 application. We ([Alfonso James](https://github.com/AlfonsoJames), [Gabriella Miller-Eakin](https://github.com/gabriellamiller-eakin), [Caitlin Crews](https://github.com/caitlincrews08), [Benjamin Phan](https://github.com/bphan94), and [Nathan Anthony](https://github.com/Pegasoos)) built this application to help people conveniently find the five best reviewed locations and activities in a given city.
 ## Traveler's Top 5
-Traveler's Top 5 is a mobile first web application that utilizes the Yelp API to help users discover locations based on review ranking to visit within the city they enter. It also uses the Google Map Embed API to give users a map display of the selected venue.
+[Traveler's Top 5](https://gabriellamiller-eakin.github.io/Travelers-Top-5/) is a mobile first web application that utilizes the Yelp API to help users discover locations based on review ranking to visit within the city they enter. It also uses the Google Map Embed API to give users a map display of the selected venue.
